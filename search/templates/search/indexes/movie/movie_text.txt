@@ -1,0 +1,4 @@
+{{ object.title }}
+{{ object.genre }}
+{{ object.director.name }}
+{{ object.writer.name }}

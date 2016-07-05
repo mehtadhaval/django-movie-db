@@ -1,0 +1,19 @@
+<h1>Your Watchlists</h1>
+<div class="results">
+<table id="result_list" style="width:100%">
+    <thead>
+        <tr>
+            <th style="width:70%">Name</th>
+            <th style="width:30%">Movies added</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for watchlist in watchlists %}
+        <tr>
+            <td>{{watchlist.name}}</td>
+            <td>{{watchlist.movies.count}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>

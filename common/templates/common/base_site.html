@@ -1,0 +1,38 @@
+{% extends "admin/base.html" %}
+{% load i18n admin_static %}
+{% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Movie database') }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'common:index' %}">{{ site_header|default:_('MovieDB') }}</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block usertools %}
+<div id="user-tools">
+    {% if user.is_authenticated %}
+        {% block welcome-msg %}
+            {% trans 'Welcome,' %}
+            <strong>{% firstof user.get_short_name user.get_username %}</strong>.
+        {% endblock %}
+    {% endif %}
+    {% block userlinks %}
+        {% if site_url %}
+            <a href="{{ site_url }}">{% trans 'View site' %}</a> /
+        {% endif %}
+        {% if user.is_authenticated %}
+            {% if user.is_active and user.is_staff %}
+                {% url 'django-admindocs-docroot' as docsroot %}
+                {% if docsroot %}
+                    <a href="{{ docsroot }}">{% trans 'Documentation' %}</a> /
+                {% endif %}
+            {% endif %}
+            <a href="{% url 'registration:logout' %}">{% trans 'Log out' %}</a>
+        {% else %}
+            <a href="{% url 'registration:login' %}">{% trans 'Login' %}</a>
+        {% endif %}
+    {% endblock %}
+</div>
+{% endblock %}

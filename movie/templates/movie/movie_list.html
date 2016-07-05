@@ -1,0 +1,26 @@
+{% extends "common/home.html" %}
+{% load i18n %}
+{% block content %}
+
+<h1>{% trans 'Movies' %}</h1>
+<div class="results">
+<table id="result_list" style="width:100%">
+    <tbody>
+        {% for movie in object_list %}
+        <tr>
+            <td style="width:150px;"><img src="{{movie.poster.url}}" style="max-width:100%;"/></td>
+            <td style="font-size:16px;line-height:20px;">
+                <h2 style="font-size:24px;margin-top:5px;">{{movie.title}}</h2>
+                <div><strong>{% trans 'Released' %} :</strong> {{movie.release_date | date}}</div>
+                <div><strong>{% trans 'Genre' %} :</strong> {{movie.genre}}</div>
+                <div><strong>{% trans 'Directed by' %} :</strong> {{movie.director.name}}</div>
+                <div><strong>{% trans 'Written by' %} :</strong> {{movie.director.name}}</div>
+                <div><strong>{% trans 'Synopsis' %} :</strong> {{movie.synopsis}}</div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% endblock %}
