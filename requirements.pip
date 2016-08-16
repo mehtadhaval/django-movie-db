@@ -1,0 +1,13 @@
+Django==1.9.7
+django-debug-toolbar==1.4
+django-filter==0.13.0
+django-haystack==2.4.1
+django-rest-swagger==0.3.8
+django-sendmail-backend==0.1.2
+djangorestframework==3.3.3
+elasticsearch==2.3.0
+Markdown==2.6.6
+Pillow==3.2.0
+PyYAML==3.11
+sqlparse==0.1.19
+urllib3==1.16
